@@ -1,0 +1,70 @@
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.firework {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: rocket 0.5s ease-out forwards;
+}
+
+@keyframes rocket {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--firework-color);
+  border-radius: 50%;
+  animation: explode 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  box-shadow: 0 0 10px var(--firework-color);
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(cos(calc(var(--i) * 30deg)) * 150px),
+      calc(sin(calc(var(--i) * 30deg)) * 150px)
+    ) scale(0);
+    opacity: 0;
+  }
+}
+
+.spark:nth-child(1) { --i: 0; }
+.spark:nth-child(2) { --i: 1; }
+.spark:nth-child(3) { --i: 2; }
+.spark:nth-child(4) { --i: 3; }
+.spark:nth-child(5) { --i: 4; }
+.spark:nth-child(6) { --i: 5; }
+.spark:nth-child(7) { --i: 6; }
+.spark:nth-child(8) { --i: 7; }
+.spark:nth-child(9) { --i: 8; }
+.spark:nth-child(10) { --i: 9; }
+.spark:nth-child(11) { --i: 10; }
+.spark:nth-child(12) { --i: 11; }
