@@ -36,15 +36,6 @@ const Countdown = () => {
     <Container className="py-5">
       <Row className="justify-content-center">
         <Col md={10}>
-          <h2 className="text-center text-white mb-4">
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Live countdown to New Year 2026!</Tooltip>}
-            >
-              <ClockFill className="me-2" style={{cursor: 'pointer'}} />
-            </OverlayTrigger>
-            Time Until 2026
-          </h2>
           <Row>
             {Object.entries(timeLeft).map(([unit, value]) => (
               <Col key={unit} xs={6} md={3} className="mb-3">

@@ -10,18 +10,18 @@ const Fireworks = () => {
       const newFirework = {
         id,
         x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight * 0.6 + 100,
-        color: ['#ff6b35', '#ff8c42', '#ffa726', '#ffcc02', '#ff5722'][Math.floor(Math.random() * 5)]
+        y: Math.random() * window.innerHeight * 0.5 + 100,
+        color: ['#ff6b35', '#ff8c42', '#ffa726'][Math.floor(Math.random() * 3)]
       };
       
-      setFireworks(prev => [...prev, newFirework]);
+      setFireworks(prev => [...prev.slice(-8), newFirework]);
       
       setTimeout(() => {
         setFireworks(prev => prev.filter(fw => fw.id !== id));
-      }, 2000);
+      }, 1500);
     };
 
-    const interval = setInterval(createFirework, 800);
+    const interval = setInterval(createFirework, 1200);
     return () => clearInterval(interval);
   }, []);
 
@@ -37,7 +37,7 @@ const Fireworks = () => {
             '--firework-color': firework.color
           }}
         >
-          {[...Array(12)].map((_, i) => (
+          {[...Array(8)].map((_, i) => (
             <div key={i} className="spark" style={{ '--i': i }} />
           ))}
         </div>
